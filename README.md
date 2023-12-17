@@ -1,6 +1,6 @@
 # IP Info Page
 
-Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
+Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 
 ## Dependencies
 
@@ -48,8 +48,10 @@ Accessed via curl or wget will print IP info in JSON:
 }
 ```
 
-In case being unable to read geoip data, it will set geoip = false and print ip and ua only.
+In case being unable to read geoip data, it will set geoip => false and print IP and UA only.
 
 ## Screenshot
 
 ![image](https://github.com/c0m4r/ip-info-page/assets/6292788/5492c376-bc49-4ee0-97d0-e2a41e55f128)
+
+OS and Language are detected using native JavaScript. In case being unable to read some of the geoip data, it will show only data it was able to read or none.
