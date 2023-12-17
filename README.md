@@ -1,6 +1,6 @@
 # ip-info-page
 
-Based on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
+Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 
 ## Dependencies
 
