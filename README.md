@@ -13,7 +13,7 @@ Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 ## Installation
 
 1. [Install Composer](https://getcomposer.org/download/)
-2. Download required libraries
+2. Download required libraries:
 
 ```
 php composer.phar update
