@@ -48,6 +48,8 @@ Accessed via curl or wget will print IP info in JSON:
 }
 ```
 
+In case being unable to read geoip data, it will set geoip = false and print ip and ua only.
+
 ## Screenshot
 
 ![image](https://github.com/c0m4r/ip-info-page/assets/6292788/5492c376-bc49-4ee0-97d0-e2a41e55f128)
