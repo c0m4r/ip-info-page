@@ -1,4 +1,4 @@
-# ip-info-page
+# IP Info Page
 
 Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 
