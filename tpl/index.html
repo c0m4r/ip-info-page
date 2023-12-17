@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="IP info" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="IP info">
     <title>IP info</title>
 
     <!-- Bootstrap core CSS -->
@@ -24,7 +24,6 @@
         }
       }
     </style>
-
     
     <!-- Custom styles for this template -->
     <link href="features.css" rel="stylesheet">
@@ -79,6 +78,7 @@
           <p><input class="form-control" size="28" type="text" value="{{ ip }}" /></p>
         </div>
       </div>
+      {% if geoip.country.name %}
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#globe-americas"/></svg>
         <div>
@@ -86,6 +86,8 @@
           <p>{{ geoip.country.name}}</p>
         </div>
       </div>
+      {% endif %}
+      {% if geoip.mostSpecificSubdivision.name %}
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#map"/></svg>
         <div>
@@ -93,6 +95,8 @@
           <p>{{ geoip.mostSpecificSubdivision.name }}</p>
         </div>
       </div>
+      {% endif %}
+      {% if geoip.city.name %}
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#geo"/></svg>
         <div>
@@ -100,6 +104,8 @@
           <p>{{ geoip.city.name }}</p>
         </div>
       </div>
+      {% endif %}
+      {% if geoip.postal.code %}
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#mailbox"/></svg>
         <div>
@@ -107,6 +113,7 @@
           <p>{{ geoip.postal.code }}</p>
         </div>
       </div>
+      {% endif %}
       <div class="col d-flex align-items-start">
         <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#laptop"/></svg>
         <div>
