@@ -4,11 +4,11 @@ Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 
 ## Dependencies
 
-* PHP 8.2
-* Composer
-  * geoip2/geoip2
-  * twbs/bootstrap
-  * twig/twig
+* [PHP 8.2](https://www.php.net/downloads.php)
+* [Composer](https://getcomposer.org/download/)
+  * [geoip2/geoip2](https://github.com/maxmind/GeoIP2-php)
+  * [twbs/bootstrap](https://getbootstrap.com/docs/5.3/getting-started/download/#composer)
+  * [twig/twig](https://twig.symfony.com/doc/3.x/intro.html#installation)
 
 ## Installation
 
