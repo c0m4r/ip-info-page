@@ -15,7 +15,7 @@ Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 1. [Install Composer](https://getcomposer.org/download/)
 2. Download required libraries:
 
-```
+```bash
 php composer.phar update
 ```
 
@@ -25,11 +25,27 @@ php composer.phar update
 
 There are a few php.ini settings required for Composer to work:
 
-```
+```ini
 allow_url_fopen = On
 allow_url_include = On
 extension=openssl
 extension=phar
+```
+
+## JSON
+
+Accessed via curl or wget will print IP info in JSON:
+
+```json
+{
+    "ip": "127.0.0.1",
+    "geoip": true,
+    "country": "Poland",
+    "region": "Masovian Voivodeship",
+    "city": "Warsaw",
+    "postal": "00-022",
+    "ua": "curl\/8.5.0"
+}
 ```
 
 ## Screenshot
