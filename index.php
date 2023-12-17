@@ -42,7 +42,7 @@ if(preg_match('/^(curl|wget)/i', $_SERVER['HTTP_USER_AGENT'])) {
         );
     } else
     {
-        $data = array('ip' => $ip, 'ua' => $ua, 'geoip' => NULL);
+        $data = array('ip' => $ip, 'ua' => $ua, 'geoip' => false);
     }
 
     echo json_encode($data, JSON_PRETTY_PRINT);
@@ -55,7 +55,7 @@ if(preg_match('/^(curl|wget)/i', $_SERVER['HTTP_USER_AGENT'])) {
     echo $twig->render('index.html', [
         'ip' => $ip,
         'ua' => $ua,
-        'geoip' => false
+        'geoip' => $geoip
     ]);
 }
 
