@@ -13,6 +13,16 @@ Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoI
 ## Installation
 
 1. [Install Composer](https://getcomposer.org/download/)
+
+There are a few php.ini settings required for Composer to work:
+
+```ini
+allow_url_fopen = On
+allow_url_include = On
+extension=openssl
+extension=phar
+```
+
 2. Download required libraries:
 
 ```bash
@@ -23,17 +33,6 @@ php composer.phar update
 
 ```php
 $cityDbReader = new Reader('GeoLite2-City_20231215/GeoLite2-City.mmdb');
-```
-
-## PHP Settings
-
-There are a few php.ini settings required for Composer to work:
-
-```ini
-allow_url_fopen = On
-allow_url_include = On
-extension=openssl
-extension=phar
 ```
 
 ## JSON
