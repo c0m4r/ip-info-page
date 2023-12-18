@@ -15,7 +15,7 @@ Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoI
 ```bash
 git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
-wget -O composer-setup.php https://getcomposer.org/installer || curl -o composer-setup.php https://getcomposer.org/installer
+wget -O composer-setup.php https://getcomposer.org/installer
 php composer-setup.php && rm composer-setup.php
 php composer.phar update
 ```
