@@ -2,10 +2,6 @@
 
 Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 
-## Demo
-
-PHPSandbox: https://phpsandbox.io/n/ip-info-page-aeljb
-
 ## Dependencies
 
 * [PHP 8.2](https://www.php.net/downloads.php)
@@ -67,6 +63,10 @@ Accessed via curl or wget will print IP info in JSON:
 ```
 
 In the case of being unable to read the geoip data, it will set ```geoip => false``` and print only IP and UA information.
+
+## Demo
+
+PHPSandbox: https://phpsandbox.io/n/ip-info-page-aeljb
 
 ## Screenshot
 
