@@ -14,15 +14,10 @@ Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoI
 
 ```bash
 #!/bin/bash
-git clone https://github.com/c0m4r/ip-info-page.git
-cd ip-info-page
-wget -O composer-setup.php https://getcomposer.org/installer || curl -o composer-setup.php https://getcomposer.org/installer
-wget -O composer-installer.sig https://composer.github.io/installer.sig || curl -o composer-installer.sig https://composer.github.io/installer.sig
-if [[ $(sha384sum composer-setup.php | awk '{print $1}') -eq $(cat composer-installer.sig) ]]; then
-  php composer-setup.php && php composer.phar update && rm composer-setup.php && rm composer-installer.sig
-else
-  echo "sig FAILED"
-fi
+git clone https://github.com/c0m4r/ip-info-page.git && cd ip-info-page
+wget -O composer-setup.php https://getcomposer.org/installer || curl -o composer-setup.php https://getcomposer.org/installer || echo "wget/curl not found, can't download"
+wget -O composer-installer.sig https://composer.github.io/installer.sig || curl -o composer-installer.sig https://composer.github.io/installer.sig || echo "wget/curl not found, can't download"
+if [[ $(sha384sum composer-setup.php | awk '{print $1}') -eq $(cat composer-installer.sig) ]]; then php composer-setup.php && php composer.phar update && rm -f composer-setup.php composer-installer.sig ; else echo "sig FAILED" ; fi
 ```
 
 ## Installation
@@ -66,13 +61,13 @@ Accessed via curl or wget will print IP info in JSON:
 }
 ```
 
-In case being unable to read geoip data, it will set geoip => false and print IP and UA only.
+In the case of being unable to read the geoip data, it will set ```geoip => false``` and print only IP and UA information.
 
 ## Screenshot
 
 ![image](https://github.com/c0m4r/ip-info-page/assets/6292788/5492c376-bc49-4ee0-97d0-e2a41e55f128)
 
-OS and Language are detected using native JavaScript. In case being unable to read some of the geoip data, it will show only data it was able to read or none.
+OS and Language are detected using native JavaScript. In the case of being unable to read some or none of the geoip data, it will show only data it was able to detect.
 
 ## CloudFlare
 
