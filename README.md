@@ -18,7 +18,8 @@ cd ip-info-page
 wget https://getcomposer.org/installer -O composer-setup.php
 php composer-setup.php
 php composer.phar update
-mkdir GeoLite2-City_20231215 # put GeoLite2-City.mmdb here
+mkdir GeoLite2-City_20231215
+echo "Now copy GeoLite2-City.mmdb here: $PWD/GeoLite2-City_20231215/"
 ```
 
 ## Installation
