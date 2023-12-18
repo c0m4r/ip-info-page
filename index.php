@@ -18,7 +18,7 @@ if(isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
 // Load GeoIP2-php database
 // https://dev.maxmind.com/geoip/geolite2-free-geolocation-data
 try {
-    $cityDbReader = new Reader('GeoLite2-City_20231215/GeoLite2-City.mmdb');
+    $cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
     $geoip = $cityDbReader->city($ip);
 } catch(Exception $e) {
     $geoip = array();
