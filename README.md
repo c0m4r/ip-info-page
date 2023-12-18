@@ -13,11 +13,16 @@ Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoI
 ## TL;DR
 
 ```bash
+#!/bin/bash
 git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
-wget -O composer-setup.php https://getcomposer.org/installer
-php composer-setup.php && rm composer-setup.php
-php composer.phar update
+wget -O composer-setup.php https://getcomposer.org/installer || curl -o composer-setup.php https://getcomposer.org/installer
+wget -O composer-installer.sig https://composer.github.io/installer.sig || curl -o composer-installer.sig https://composer.github.io/installer.sig
+if [[ $(sha384sum composer-setup.php | awk '{print $1}') -eq $(cat composer-installer.sig) ]]; then
+  php composer-setup.php && php composer.phar update && rm composer-setup.php && rm composer-installer.sig
+else
+  echo "sig FAILED"
+fi
 ```
 
 ## Installation
