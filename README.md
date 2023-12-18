@@ -10,6 +10,17 @@ Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoI
   * [twbs/bootstrap](https://getbootstrap.com/docs/5.3/getting-started/download/#composer)
   * [twig/twig](https://twig.symfony.com/doc/3.x/intro.html#installation)
 
+## TL;DR
+
+```
+git clone https://github.com/c0m4r/ip-info-page.git
+cd ip-info-page
+wget https://getcomposer.org/installer -O composer-setup.php
+php composer-setup.php
+php composer.phar update
+mkdir GeoLite2-City_20231215 # put GeoLite2-City.mmdb here
+```
+
 ## Installation
 
 1. [Install Composer](https://getcomposer.org/download/)
