@@ -18,7 +18,7 @@ git clone https://github.com/c0m4r/ip-info-page.git && cd ip-info-page
 wget -O composer-setup.php https://getcomposer.org/installer || curl -o composer-setup.php https://getcomposer.org/installer || echo "wget/curl not found, can't download"
 wget -O composer-installer.sig https://composer.github.io/installer.sig || curl -o composer-installer.sig https://composer.github.io/installer.sig || echo "wget/curl not found, can't download"
 if [[ $(sha384sum composer-setup.php | awk '{print $1}') -eq $(cat composer-installer.sig) ]]; then php composer-setup.php && php composer.phar update && rm -f composer-setup.php composer-installer.sig ; else echo "sig FAILED" ; fi
-REMOTE_ADDR=127.0.0.1-test HTTP_USER_AGENT=curl php index.php && echo -e "\ninstallation ok" || echo "installation failed"
+REMOTE_ADDR=127.0.0.1 HTTP_USER_AGENT=curl php index.php && echo -e "\ninstallation ok" || echo "installation failed"
 ```
 
 ## Installation
