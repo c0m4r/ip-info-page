@@ -2,6 +2,9 @@
 
 Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 
+* Demo: https://aeljb.ciroue.com/
+* PHPSandbox: https://phpsandbox.io/n/ip-info-page-aeljb
+
 ## Dependencies
 
 * [PHP 8.2](https://www.php.net/downloads.php)
