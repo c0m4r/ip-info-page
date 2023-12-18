@@ -19,7 +19,7 @@ Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoI
 php composer.phar update
 ```
 
-3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data)
+3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) and change the path to the GeoLite2-City.mmdb database file accordingly.
 
 ## PHP Settings
 
