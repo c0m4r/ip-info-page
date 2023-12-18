@@ -21,6 +21,10 @@ php composer.phar update
 
 3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) and change the path to the GeoLite2-City.mmdb database file accordingly.
 
+```php
+$cityDbReader = new Reader('GeoLite2-City_20231215/GeoLite2-City.mmdb');
+```
+
 ## PHP Settings
 
 There are a few php.ini settings required for Composer to work:
