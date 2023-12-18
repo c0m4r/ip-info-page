@@ -12,14 +12,12 @@ Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoI
 
 ## TL;DR
 
-```
+```bash
 git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
-wget -O composer-setup.php https://getcomposer.org/installer
-php composer-setup.php
+wget -O composer-setup.php https://getcomposer.org/installer || curl -o composer-setup.php https://getcomposer.org/installer
+php composer-setup.php && rm composer-setup.php
 php composer.phar update
-mkdir GeoLite2-City_20231215
-echo "Now copy GeoLite2-City.mmdb here: $PWD/GeoLite2-City_20231215/"
 ```
 
 ## Installation
@@ -44,7 +42,7 @@ php composer.phar update
 3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) and change the path to the GeoLite2-City.mmdb database file accordingly.
 
 ```php
-$cityDbReader = new Reader('GeoLite2-City_20231215/GeoLite2-City.mmdb');
+$cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
 ```
 
 ## JSON
