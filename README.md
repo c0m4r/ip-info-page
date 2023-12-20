@@ -1,4 +1,4 @@
-# IP Info Page
+# IP info page
 
 An IP info page with geoip detection. Written in PHP, built on Twig, Bootstrap and GeoIP2. Supports CloudFlare.
 
