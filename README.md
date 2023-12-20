@@ -48,7 +48,7 @@ extension=phar
 php composer.phar update
 ```
 
-3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) and change the path to the GeoLite2-City.mmdb database file accordingly.
+3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) and change the path to the GeoLite2-City.mmdb database file:
 
 ```php
 $cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
