@@ -1,6 +1,6 @@
 # IP Info Page
 
-Yet another what-is-my-ip-page with geoip detection. Written in PHP, built on Twig, Bootstrap and GeoIP2. Supports CloudFlare.
+An IP info page with geoip detection. Written in PHP, built on Twig, Bootstrap and GeoIP2. Supports CloudFlare.
 
 ![image](https://github.com/c0m4r/ip-info-page/assets/6292788/5492c376-bc49-4ee0-97d0-e2a41e55f128)
 
