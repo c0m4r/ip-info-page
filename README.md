@@ -2,9 +2,17 @@
 
 Yet another what-is-my-ip-page with geoip detection. Built on Bootstrap and GeoIP2 Lite. Supports CloudFlare.
 
+![image](https://github.com/c0m4r/ip-info-page/assets/6292788/5492c376-bc49-4ee0-97d0-e2a41e55f128)
+
+OS and Language are detected using native JavaScript. In the case of being unable to read some or none of the geoip data, it will show only data it was able to detect.
+
+## Demo
+
+* PHPSandbox: https://phpsandbox.io/n/ip-info-page-aeljb
+
 ## Dependencies
 
-* [PHP 8.2](https://www.php.net/downloads.php)
+* [PHP](https://www.php.net/downloads.php)
 * [Composer](https://getcomposer.org/download/)
   * [geoip2/geoip2](https://github.com/maxmind/GeoIP2-php)
   * [twbs/bootstrap](https://getbootstrap.com/docs/5.3/getting-started/download/#composer)
@@ -63,16 +71,6 @@ Accessed via curl or wget will print IP info in JSON:
 ```
 
 In the case of being unable to read the geoip data, it will set ```geoip => false``` and print only IP and UA information.
-
-## Demo
-
-PHPSandbox: https://phpsandbox.io/n/ip-info-page-aeljb
-
-## Screenshot
-
-![image](https://github.com/c0m4r/ip-info-page/assets/6292788/5492c376-bc49-4ee0-97d0-e2a41e55f128)
-
-OS and Language are detected using native JavaScript. In the case of being unable to read some or none of the geoip data, it will show only data it was able to detect.
 
 ## CloudFlare
 
