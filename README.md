@@ -2,7 +2,7 @@
 
 IP info page with geoip detection. Written in PHP, built with Twig, Bootstrap and GeoIP2. Supports CloudFlare.
 
-![image](https://github.com/c0m4r/ip-info-page/assets/6292788/5492c376-bc49-4ee0-97d0-e2a41e55f128)
+![image](https://github.com/c0m4r/ip-info-page/assets/6292788/87b89598-e68c-4892-9d17-8d8ec625c71b)
 
 OS and Language are detected using native JavaScript. In the case of being unable to read some or none of the geoip data, it will show only data it was able to detect.
 
