@@ -45,7 +45,7 @@ if(preg_match('/^(curl|wget)/i', $_SERVER['HTTP_USER_AGENT'])) {
         $data = array('ip' => $ip, 'ua' => $ua, 'geoip' => false);
     }
 
-    echo json_encode($data, JSON_PRETTY_PRINT);
+    echo json_encode($data, JSON_PRETTY_PRINT)."\n";
 } else
 {
     // Twig
