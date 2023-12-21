@@ -1,0 +1,40 @@
+server {
+    listen [::]:443 quic reuseport;
+    listen [::]:443 ssl;
+    server_name _;
+
+    http2 on;
+    http3 on;
+
+    add_header Alt-Svc 'h3=":443"; ma=86400';
+
+    ssl_certificate /etc/nginx/ssl/cloudflare.crt;
+    ssl_certificate_key /etc/nginx/ssl/cloudflare.key;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:MozSSL:10m;
+    ssl_session_tickets off;
+
+    ssl_protocols TLSv1.3;
+    ssl_prefer_server_ciphers off;
+
+    root /opt/ip-info-page;
+
+    location / {
+        deny all;
+    }
+
+    location = / {
+        allow all;
+        index index.php;
+    }
+
+    location = /index.php {
+        allow all;
+        include fastcgi.conf;
+        fastcgi_pass unix:/run/php-fpm83/php-fpm.sock;
+    }
+
+    location = /vendor/twbs/bootstrap/dist/css/bootstrap.min.css {
+        allow all;
+    }
+}
