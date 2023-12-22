@@ -31,24 +31,9 @@ REMOTE_ADDR=127.0.0.1 HTTP_USER_AGENT=curl php index.php && echo -e "\ninstallat
 
 ## Installation
 
-1. [Install Composer](https://getcomposer.org/download/)
-
-There are a few php.ini settings required for Composer to work:
-
-```ini
-allow_url_fopen = On
-allow_url_include = On
-extension=openssl
-extension=phar
-```
-
-2. Download required libraries:
-
-```bash
-php composer.phar update
-```
-
-3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data) and change the path to the GeoLite2-City.mmdb database file:
+1. [Install Composer](https://getcomposer.org/download/) (PHP modules required: curl, mbstring, openssl, phar)
+2. Download required libraries: `php composer.phar update`
+3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data), edit index.php and change the path to the GeoLite2-City.mmdb file:
 
 ```php
 $cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
