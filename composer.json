@@ -1,4 +1,9 @@
 {
+    "name": "c0m4r/ip-info-page",
+    "description": "IP info page with geoip detection",
+    "type": "project",
+    "homepage": "https://github.com/c0m4r/ip-info-page",
+    "license": "MIT",
     "require": {
         "geoip2/geoip2": "~2.0",
         "twbs/bootstrap": "^5.3",
