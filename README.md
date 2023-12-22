@@ -18,17 +18,6 @@ OS and Language are detected using native JavaScript. In the case of being unabl
   * [twbs/bootstrap](https://getbootstrap.com/docs/5.3/getting-started/download/#composer)
   * [twig/twig](https://twig.symfony.com/doc/3.x/intro.html#installation)
 
-## TL;DR
-
-```bash
-#!/bin/bash
-git clone https://github.com/c0m4r/ip-info-page.git && cd ip-info-page
-wget -O composer-setup.php https://getcomposer.org/installer || curl -o composer-setup.php https://getcomposer.org/installer || echo "wget/curl not found, can't download"
-wget -O composer-installer.sig https://composer.github.io/installer.sig || curl -o composer-installer.sig https://composer.github.io/installer.sig || echo "wget/curl not found, can't download"
-if [[ $(sha384sum composer-setup.php | awk '{print $1}') -eq $(cat composer-installer.sig) ]]; then php composer-setup.php && php composer.phar update && rm -f composer-setup.php composer-installer.sig ; else echo "sig FAILED" ; fi
-REMOTE_ADDR=127.0.0.1 HTTP_USER_AGENT=curl php index.php && echo -e "\ninstallation ok" || echo "installation failed"
-```
-
 ## Installation
 
 1. [Install Composer](https://getcomposer.org/download/) (PHP modules required: curl, mbstring, openssl, phar)
@@ -39,9 +28,9 @@ REMOTE_ADDR=127.0.0.1 HTTP_USER_AGENT=curl php index.php && echo -e "\ninstallat
 $cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
 ```
 
-## JSON
+## JSON mode
 
-Accessed via curl or wget will print IP info in JSON:
+If request is sent using curl or wget, it will print IP info in JSON:
 
 ```json
 {
@@ -57,6 +46,8 @@ Accessed via curl or wget will print IP info in JSON:
 
 In the case of being unable to read the geoip data, it will set ```geoip => false``` and print only IP and UA information.
 
-## CloudFlare
+## Behind proxy
 
 When behind CloudFlare it will use [CF-Connecting-IP](https://developers.cloudflare.com/fundamentals/reference/http-request-headers/#cf-connecting-ip) HTTP Header for IP detection. While using curl keep in mind that things like [Bot Fight Mode](https://developers.cloudflare.com/learning-paths/get-started-free/security/bot-fight-mode/) and [Browser Integrity Check](https://developers.cloudflare.com/waf/tools/browser-integrity-check/) will most likely prevent you from reading anything, due to the altered javascript challenge page.
+
+For other proxies X-Forwarded-For is used.
