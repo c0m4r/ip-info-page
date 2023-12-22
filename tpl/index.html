@@ -45,9 +45,9 @@
     <main>
       <div class="b-example-divider"></div>
       <div class="container px-4 py-5" id="icon-grid">
-        <h2 class="pb-2 border-bottom">IP info</h2>
+        <h3 class="pb-2 border-bottom">IP info</h3>
         {% if geoip == false %}
-        <div class="alert alert-warning">GeoIP2 Lite database missing. Check configuration.</div>
+        <div class="alert alert-info">GeoIP2 Lite database missing. Showing only basic information.</div>
         {% endif %}
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-2 g-4 py-5">
           <div class="col d-flex align-items-start">
