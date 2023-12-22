@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="IP info">
+    <meta name="description" content="IP info page with geoip detection">
     <title>IP info</title>
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="{{ bootstrap_css_sri_hash }}" crossorigin="anonymous">
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -134,9 +133,6 @@
         </div>
       </div>
     </main>
-    <script>
-      document.getElementById("system").innerHTML = navigator.platform;
-      document.getElementById("lang").innerHTML = navigator.language;
-    </script>
+    <script src="js/navigator.js" type="text/javascript" integrity="{{ navigator_js_sri_hash }}" crossorigin="anonymous"></script>
   </body>
 </html>
