@@ -38,7 +38,11 @@ server {
         allow all;
     }
 
-    location = /vendor/twbs/bootstrap/dist/css/bootstrap.min.css {
+    location ~ ^/js/navigator.js$ {
+        allow all;
+    }
+
+    location ~ ^/vendor/twbs/bootstrap/dist/css/bootstrap.min.css$ {
         allow all;
     }
 }
