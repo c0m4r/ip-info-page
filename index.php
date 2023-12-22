@@ -66,9 +66,19 @@ if(preg_match('/^(curl|wget)/i', $ua)) {
     $loader = new \Twig\Loader\FilesystemLoader('tpl');
     $twig = new \Twig\Environment($loader);
 
+    // SRI Hash generator
+    function sri($file) {
+        $f = fopen($file, "r");
+        $body = fread($f, filesize($file));
+        $hash = hash('sha384', $body, true);
+        return "sha384-".base64_encode($hash);
+    }
+
     echo $twig->render('index.html', [
         'ip' => $ip,
         'ua' => $ua,
+        'bootstrap_css_sri_hash' => sri("vendor/twbs/bootstrap/dist/css/bootstrap.min.css"),
+        'navigator_js_sri_hash' => sri("js/navigator.js"),
         'geoip' => $geoip
     ]);
 }
