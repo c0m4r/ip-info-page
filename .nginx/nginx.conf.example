@@ -28,10 +28,14 @@ server {
         index index.php;
     }
 
-    location ~ ^/favicon.ico$ {
+    location ~ ^/index.php$ {
         allow all;
         include fastcgi.conf;
         fastcgi_pass unix:/run/php-fpm83/php-fpm.sock;
+    }
+
+    location ~ ^/favicon.ico$ {
+        allow all;
     }
 
     location = /vendor/twbs/bootstrap/dist/css/bootstrap.min.css {
