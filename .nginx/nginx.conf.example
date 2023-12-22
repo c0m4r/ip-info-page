@@ -28,7 +28,7 @@ server {
         index index.php;
     }
 
-    location = /index.php {
+    location ~ ^/favicon.ico$ {
         allow all;
         include fastcgi.conf;
         fastcgi_pass unix:/run/php-fpm83/php-fpm.sock;
