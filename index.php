@@ -10,7 +10,7 @@ if(!empty($_GET) or !empty($_POST)) {
 if(is_file('vendor/autoload.php')) {
     require_once 'vendor/autoload.php'; // Composer
 } else {
-    exit("Composer not installed\n");
+    header('HTTP/1.0 503 Service Unavailable'); exit("Composer library not found\n");
 }
 
 use GeoIp2\Database\Reader; // GeoIP2-php
