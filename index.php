@@ -16,7 +16,7 @@ if(is_file('vendor/autoload.php')) {
 use GeoIp2\Database\Reader; // GeoIP2-php
 
 if(isset($_SERVER['HTTP_USER_AGENT'])) {
-    $ua = htmlspecialchars($_SERVER['HTTP_USER_AGENT']);
+    $ua = substr(htmlspecialchars($_SERVER['HTTP_USER_AGENT']),0,512);
 } else {
     $ua = NULL;
 }
