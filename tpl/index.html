@@ -8,8 +8,8 @@
     <meta name="github:website" content="https://github.com/c0m4r/ip-info-page">
     <link rel="icon" type="image/png" href="favicon.ico">
     <title>IP info</title>
-    <link href="css/style.css" rel="stylesheet" integrity="{{ style_css_sri_hash }}" crossorigin="anonymous">
-    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="{{ bootstrap_css_sri_hash }}" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet"{% if config.sri %} integrity="{{ style_css_sri_hash }}" crossorigin="anonymous"{% endif %}>
+    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"{% if config.sri %} integrity="{{ bootstrap_css_sri_hash }}" crossorigin="anonymous"{% endif %}>
   </head>
   <body>
     <svg class="icons" xmlns="http://www.w3.org/2000/svg">
@@ -137,6 +137,6 @@
         </div>
       </div>
     </main>
-    <script src="js/navigator.js" type="text/javascript" integrity="{{ navigator_js_sri_hash }}" crossorigin="anonymous"></script>
+    <script src="js/navigator.js" type="text/javascript"{% if config.sri %} integrity="{{ navigator_js_sri_hash }}{% endif %}" crossorigin="anonymous"></script>
   </body>
 </html>

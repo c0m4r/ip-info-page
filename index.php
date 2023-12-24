@@ -83,6 +83,7 @@ if(preg_match('/^(curl|wget)/i', $ua)) {
     }
 
     echo $twig->render('index.html', [
+        'config' => $config,
         'ip' => $ip,
         'ua' => $ua,
         'bootstrap_css_sri_hash' => sri("vendor/twbs/bootstrap/dist/css/bootstrap.min.css"),
