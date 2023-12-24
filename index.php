@@ -3,6 +3,8 @@
 // IP info page
 // https://github.com/c0m4r/ip-info-page
 
+require_once('config.php');
+
 if(!empty($_GET) or !empty($_POST)) {
     header('HTTP/1.0 405 Method Not Allowed'); exit("405 Method Not Allowed\n");
 }
@@ -32,10 +34,16 @@ if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) and filter_var($_SERVER['HTTP_CF_CON
     header('HTTP/1.0 501 Not Implemented'); exit("501 Not Implemented\n");
 }
 
+// CSP header
+if($config->csp == true) {
+    $nonce = bin2hex(openssl_random_pseudo_bytes(32));
+    header("Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-$nonce';");
+}
+
 // Load GeoIP2-php database
 // https://dev.maxmind.com/geoip/geolite2-free-geolocation-data
 try {
-    $cityDbReader = new Reader('.geolite2/GeoLite2-City.mmdb');
+    $cityDbReader = new Reader('GeoLite2-City.mmdb');
     $geoip = $cityDbReader->city($ip);
 } catch(Exception $e) {
     $geoip = array();
@@ -68,8 +76,8 @@ if(preg_match('/^(curl|wget)/i', $ua)) {
 
     // SRI Hash generator
     function sri($file) {
-        $f = fopen($file, "r");
-        $body = fread($f, filesize($file));
+        $handle = fopen($file, "r");
+        $body = fread($handle, filesize($file));
         $hash = hash('sha384', $body, true);
         return "sha384-".base64_encode($hash);
     }
@@ -78,6 +86,7 @@ if(preg_match('/^(curl|wget)/i', $ua)) {
         'ip' => $ip,
         'ua' => $ua,
         'bootstrap_css_sri_hash' => sri("vendor/twbs/bootstrap/dist/css/bootstrap.min.css"),
+	'style_css_sri_hash' => sri("css/style.css"),
         'navigator_js_sri_hash' => sri("js/navigator.js"),
         'geoip' => $geoip
     ]);
