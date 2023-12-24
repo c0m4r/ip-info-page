@@ -42,7 +42,15 @@ server {
         allow all;
     }
 
+    location ~ ^/css/style.css$ {
+        allow all;
+    }
+
     location ~ ^/vendor/twbs/bootstrap/dist/css/bootstrap.min.css$ {
+        allow all;
+    }
+
+    location ~ ^/vendor/twbs/bootstrap/dist/css/bootstrap.min.css.map$ {
         allow all;
     }
 }
