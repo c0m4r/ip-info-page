@@ -3,7 +3,7 @@
 // IP info page
 // https://github.com/c0m4r/ip-info-page
 
-require_once('config.php');
+require_once 'config.php';
 
 if(!empty($_GET) or !empty($_POST)) {
     header('HTTP/1.0 405 Method Not Allowed'); exit("405 Method Not Allowed\n");
