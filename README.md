@@ -34,9 +34,7 @@ $cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
 ```
 git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
-mv .docker/docker-compose.ipv4.yml docker-compose.yml
 docker compose up -d
-curl -v http://localhost:8081
 ```
 
 ## JSON mode
