@@ -29,6 +29,16 @@ OS and Language are detected using native JavaScript. In the case of being unabl
 $cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
 ```
 
+#### Docker
+
+```
+git clone https://github.com/c0m4r/ip-info-page.git
+cd ip-info-page
+mv .docker/docker-compose.ipv4.yml docker-compose.yml
+docker compose up -d
+curl -v http://localhost:8081
+```
+
 ## JSON mode
 
 If request is sent using curl or wget, it will print IP info in JSON:
