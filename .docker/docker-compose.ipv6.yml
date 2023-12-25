@@ -29,5 +29,5 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: fd16:279c:f6ef::/64
+        - subnet: fd16:279c:f6ef::/48
           gateway: fd16:279c:f6ef::1
