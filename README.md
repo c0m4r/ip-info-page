@@ -31,7 +31,7 @@ $cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
 
 #### Docker
 
-```
+```bash
 git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
 docker compose up -d
