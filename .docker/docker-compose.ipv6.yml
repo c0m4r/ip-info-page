@@ -12,16 +12,16 @@ services:
       - php-fpm
     networks:
       net6:
-        ipv6_address: fd45:3d2c:b189:ffff::10
-    dns: fd45:3d2c:b189:ffff::1
+        ipv6_address: fd16:279c:f6ef::10
+    dns: fd16:279c:f6ef::1
   php-fpm:
     image: php:8-fpm
     volumes:
       - ./:/var/www/html
     networks:
       net6:
-        ipv6_address: fd45:3d2c:b189:ffff::20
-    dns: fd45:3d2c:b189:ffff::1
+        ipv6_address: fd16:279c:f6ef::20
+    dns: fd16:279c:f6ef::1
 networks:
   net6:
     enable_ipv6: true
@@ -29,5 +29,5 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: fd45:3d2c:b189:ffff::/64
-          gateway: fd45:3d2c:b189:ffff::1
+        - subnet: fd16:279c:f6ef::/64
+          gateway: fd16:279c:f6ef::1
