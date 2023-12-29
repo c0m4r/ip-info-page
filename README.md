@@ -26,6 +26,8 @@ IP Info page with geoip detection. Written in PHP, built with Twig, Bootstrap an
 $cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
 ```
 
+4. Edit manifest.json and change `start_url` for PWA.
+
 #### Docker
 
 ```bash
