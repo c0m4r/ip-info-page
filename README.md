@@ -2,22 +2,19 @@
 
 IP Info page with geoip detection. Written in PHP, built with Twig, Bootstrap and GeoIP2. Supports CloudFlare.
 
-![image](https://github.com/c0m4r/ip-info-page/assets/6292788/e6fd7f92-95b0-45ae-9d74-8e6a7611da36)
+<div align="center">
 
+![image](https://github.com/c0m4r/ip-info-page/assets/6292788/e6fd7f92-95b0-45ae-9d74-8e6a7611da36)
+ 
 ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![PWA](https://img.shields.io/badge/pwa-black?style=for-the-badge&logo=pwa&logoColor=white)
 
-## Demo
+![image](https://github.com/c0m4r/ip-info-page/assets/6292788/4bfc8fc3-fb23-4386-87e8-1e22c686aefb)
 
-* PHPSandbox: https://phpsandbox.io/n/ip-info-page-aeljb
+</div>
 
 ## Dependencies
 
-* [PHP](https://www.php.net/downloads.php)
-* [Composer](https://getcomposer.org/download/)
-  * [geoip2/geoip2](https://github.com/maxmind/GeoIP2-php)
-  * [twbs/bootstrap](https://getbootstrap.com/docs/5.3/getting-started/download/#composer)
-  * [twig/twig](https://twig.symfony.com/doc/3.x/intro.html#installation)
-  * [Globe Africa](https://icons8.com/icon/dxoYK8bxqiJr/globe-africa) icon by [Icons8](https://icons8.com/)
+[ [PHP](https://www.php.net/downloads.php) | [Composer](https://getcomposer.org/download/) | [geoip2/geoip2](https://github.com/maxmind/GeoIP2-php) | [twbs/bootstrap](https://getbootstrap.com/docs/5.3/getting-started/download/#composer) | [twig/twig](https://twig.symfony.com/doc/3.x/intro.html#installation) | [Globe Africa](https://icons8.com/icon/dxoYK8bxqiJr/globe-africa) icon by [Icons8](https://icons8.com/) ]
 
 ## Installation
 
