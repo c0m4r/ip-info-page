@@ -1,10 +1,10 @@
-# IP info page
+# IP Info page
 
-IP info page with geoip detection. Written in PHP, built with Twig, Bootstrap and GeoIP2. Supports CloudFlare.
+IP Info page with geoip detection. Written in PHP, built with Twig, Bootstrap and GeoIP2. Supports CloudFlare.
 
-![image](https://github.com/c0m4r/ip-info-page/assets/6292788/87b89598-e68c-4892-9d17-8d8ec625c71b)
+![image](https://github.com/c0m4r/ip-info-page/assets/6292788/e6fd7f92-95b0-45ae-9d74-8e6a7611da36)
 
-OS and Language are detected using native JavaScript. In the case of being unable to read some or none of the geoip data, it will show only data it was able to detect.
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![PWA](https://img.shields.io/badge/pwa-black?style=for-the-badge&logo=pwa&logoColor=white)
 
 ## Demo
 
