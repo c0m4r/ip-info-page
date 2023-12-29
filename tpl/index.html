@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="IP info page with geoip detection">
+    <meta name="description" content="IP Info page with geoip detection">
     <meta name="github:creator" content="c0m4r">
     <meta name="github:website" content="https://github.com/c0m4r/ip-info-page">
+    <meta name="theme-color" content="#116acf">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="favicon.ico">
-    <title>IP info</title>
+    <title>IP Info</title>
     <link href="css/style.css" rel="stylesheet"{% if config.sri %} integrity="{{ style_css_sri_hash }}" crossorigin="anonymous"{% endif %}>
     <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"{% if config.sri %} integrity="{{ bootstrap_css_sri_hash }}" crossorigin="anonymous"{% endif %}>
   </head>
@@ -49,7 +51,6 @@
     <main>
       <div class="b-example-divider"></div>
       <div class="container px-4 py-5" id="icon-grid">
-        <h3 class="pb-2 border-bottom">IP info</h3>
         {% if geoip == false %}
         <div class="alert alert-info">GeoIP lookup is not available</div>
         {% endif %}
@@ -60,7 +61,7 @@
             </svg>
             <div>
               <h4 class="fw-bold mb-0">IP</h4>
-              <p><input id="ip" class="form-control" size="40" type="text" value="{{ ip }}" aria-label="ip" readonly /></p>
+              <p><input id="ip" class="form-control" size="40" type="text" value="{{ ip }}" aria-label="ip" readonly></p>
             </div>
           </div>
           {% if geoip.country.name %}
@@ -137,6 +138,6 @@
         </div>
       </div>
     </main>
-    <script src="js/navigator.js" type="text/javascript"{% if config.sri %} integrity="{{ navigator_js_sri_hash }}{% endif %}" crossorigin="anonymous"></script>
+    <script src="js/navigator.js"{% if config.sri %} integrity="{{ navigator_js_sri_hash }}{% endif %}" crossorigin="anonymous"></script>
   </body>
 </html>

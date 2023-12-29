@@ -1,0 +1,31 @@
+{
+    "name": "IP Info",
+    "short_name": "IP Info",
+    "theme_color": "#116acf",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "https://github.com/c0m4r/ip-info-page",
+    "description": "IP Info page with geoip detection",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "https://ip.wolfet.pl/icon.png",
+            "sizes": "94x94",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "https://ip.wolfet.pl/icon-144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "https://ip.wolfet.pl/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

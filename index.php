@@ -37,7 +37,7 @@ if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) and filter_var($_SERVER['HTTP_CF_CON
 // CSP header
 if($config->csp == true) {
     $nonce = bin2hex(openssl_random_pseudo_bytes(32));
-    header("Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-$nonce';");
+    header("Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-$nonce'; base-uri 'self';");
 }
 
 // Load GeoIP2-php database
