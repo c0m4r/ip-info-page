@@ -20,6 +20,7 @@ on:
     branches: [ "main" ]
     paths:
       - /*.php
+      - /.github/workflows/phpmd.yml
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
@@ -51,6 +52,9 @@ jobs:
       - name: Run PHPMD
         run: phpmd . sarif cleancode,codesize,controversial,design,naming,unusedcode --reportfile phpmd-results.sarif
         continue-on-error: true
+
+      - name: PHP lint
+        run: php -l index.php && php -l config.php
 
       - name: Upload analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v2
