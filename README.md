@@ -14,7 +14,7 @@ IP Info page with geoip detection. Written in PHP, built with Twig, Bootstrap an
 
 ## Dependencies
 
-[ [PHP](https://www.php.net/downloads.php) | [Composer](https://getcomposer.org/download/) | [geoip2/geoip2](https://github.com/maxmind/GeoIP2-php) | [twbs/bootstrap](https://getbootstrap.com/docs/5.3/getting-started/download/#composer) | [twig/twig](https://twig.symfony.com/doc/3.x/intro.html#installation) | [Globe Africa](https://icons8.com/icon/dxoYK8bxqiJr/globe-africa) icon by [Icons8](https://icons8.com/) ]
+[PHP](https://www.php.net/downloads.php) | [Composer](https://getcomposer.org/download/) | [geoip2/geoip2](https://github.com/maxmind/GeoIP2-php) | [twbs/bootstrap](https://getbootstrap.com/docs/5.3/getting-started/download/#composer) | [twig/twig](https://twig.symfony.com/doc/3.x/intro.html#installation) | [Globe Africa](https://icons8.com/icon/dxoYK8bxqiJr/globe-africa) icon by [Icons8](https://icons8.com/)
 
 ## Installation
 
