@@ -1,5 +1,7 @@
 # IP Info page
 
+[![CodeFactor](https://www.codefactor.io/repository/github/c0m4r/ip-info-page/badge)](https://www.codefactor.io/repository/github/c0m4r/ip-info-page)
+
 IP Info page with geoip detection. Written in PHP, built with Twig, Bootstrap and GeoIP2. Supports CloudFlare.
 
 <div align="center">
