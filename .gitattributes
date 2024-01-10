@@ -1,2 +1,2 @@
 * linguist-vendored
-tpl/index.html linguist-vendored=false
+*.php linguist-vendored=false
