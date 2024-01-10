@@ -82,7 +82,7 @@ if(preg_match('/^(curl|wget)/i', $ua)) {
         return "sha384-".base64_encode($hash);
     }
 
-    echo $twig->render('index.html', [
+    echo $twig->render('index.html.template', [
         'config' => $config,
         'ip' => $ip,
         'ua' => $ua,
