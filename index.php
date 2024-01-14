@@ -43,7 +43,7 @@ if($config->csp == true) {
 // Load GeoIP2-php database
 // https://dev.maxmind.com/geoip/geolite2-free-geolocation-data
 try {
-    $cityDbReader = new Reader('GeoLite2-City.mmdb');
+    $cityDbReader = new Reader($config->geoip_db);
     $geoip = $cityDbReader->city($ip);
 } catch(Exception $e) {
     $geoip = array();
