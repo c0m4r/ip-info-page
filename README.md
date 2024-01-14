@@ -54,8 +54,8 @@ git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
 wget https://getcomposer.org/download/2.6.6/composer.phar
 echo "72600201c73c7c4b218f1c0511b36d8537963e36aafa244757f52309f885b314 composer.phar" | sha256sum -c || rm composer.phar
+php composer.phar update
 docker compose up -d
-docker compose exec php-fpm /bin/sh -c "cd /usr/share/nginx/html && php composer.phar update"
 ```
 
 ## JSON mode
