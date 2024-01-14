@@ -25,20 +25,28 @@ IP Info page with geoip detection. Written in PHP, built with Twig, Bootstrap an
 
 1. [Install Composer](https://getcomposer.org/download/) (PHP modules required: curl, mbstring, openssl, phar)
 2. Download required libraries: `php composer.phar update`
-3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data), edit index.php and change the path to the GeoLite2-City.mmdb file:
-
-```php
-$cityDbReader = new Reader('/path/to/GeoLite2-City.mmdb');
-```
-
+3. Download [GeoIP2 Lite database](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data), edit config.php and change the path to the GeoLite2-City.mmdb file respectively.
 4. Edit manifest.json and change `start_url` for PWA.
+
+#### Quick setup
+
+```bash
+git clone https://github.com/c0m4r/ip-info-page.git
+cd ip-info-page
+wget https://getcomposer.org/download/2.6.6/composer.phar
+echo "72600201c73c7c4b218f1c0511b36d8537963e36aafa244757f52309f885b314 composer.phar" | sha256sum -c || rm composer.phar
+php composer.phar update
+```
 
 #### Docker
 
 ```bash
 git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
+wget https://getcomposer.org/download/2.6.6/composer.phar
+echo "72600201c73c7c4b218f1c0511b36d8537963e36aafa244757f52309f885b314 composer.phar" | sha256sum -c || rm composer.phar
 docker compose up -d
+docker compose exec php-fpm /bin/sh -c "cd /usr/share/nginx/html && php composer.phar update"
 ```
 
 ## JSON mode
