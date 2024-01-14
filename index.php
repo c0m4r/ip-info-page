@@ -1,6 +1,6 @@
 <?php
 
-// IP info page
+// IP info page with geoip detection
 // https://github.com/c0m4r/ip-info-page
 // 
 // MIT License
