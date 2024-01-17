@@ -37,7 +37,7 @@ IP Info page with geoip detection. Written in PHP, built with Twig, Bootstrap an
    edit config.php and change the path to the GeoLite2-City.mmdb file respectively.
 5. Edit manifest.json and change `start_url` for PWA.
 
-#### Quick setup
+#### Manual
 
 ```bash
 git clone https://github.com/c0m4r/ip-info-page.git
@@ -48,6 +48,22 @@ php composer.phar update
 ```
 
 #### Docker
+
+Now available on the [Docker Hub](https://hub.docker.com/r/c0m4r/ip-info-page)
+
+Quick setup:
+
+```
+docker run --name ipp -p 127.0.0.1:8080:80 -d c0m4r/ip-info-page
+```
+
+With GeoIP module:
+
+```
+docker run --name ipp -v ./GeoLite2-City.mmdb:/var/www/html/GeoLite2-City.mmdb -p 127.0.0.1:8080:80 -d c0m4r/ip-info-page
+```
+
+You can also build it yourself:
 
 ```bash
 git clone https://github.com/c0m4r/ip-info-page.git
