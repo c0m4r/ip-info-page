@@ -5,24 +5,24 @@
     "background_color": "#ffffff",
     "display": "standalone",
     "scope": "/",
-    "start_url": "https://github.com/c0m4r/ip-info-page",
+    "start_url": "https://example.com/",
     "description": "IP Info page with geoip detection",
     "orientation": "any",
     "icons": [
         {
-            "src": "https://raw.githubusercontent.com/c0m4r/ip-info-page/main/icon.png",
+            "src": "icon.png",
             "sizes": "94x94",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "https://raw.githubusercontent.com/c0m4r/ip-info-page/main/icon-144.png",
+            "src": "icon-144.png",
             "sizes": "144x144",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "https://raw.githubusercontent.com/c0m4r/ip-info-page/main/icon-512.png",
+            "src": "icon-512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
