@@ -53,6 +53,8 @@
       <div class="container px-4 py-5" id="icon-grid">
         {% if geoip == false %}
         <div class="alert alert-info">GeoIP lookup is not available</div>
+        {% elseif geoip.notfound %}
+        <div class="alert alert-secondary">{{ geoip.notfound }}</div>
         {% endif %}
         <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4 py-5">
           <div class="col d-flex align-items-start">
