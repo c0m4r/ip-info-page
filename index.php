@@ -70,7 +70,6 @@ try {
 } catch(GeoIp2\Exception\AddressNotFoundException) {
     $geoip = array("notfound" => "IP address not found in GeoIP database.");
 } catch(Exception $e) {
-    var_dump($e);
     $geoip = array();
 }
 
