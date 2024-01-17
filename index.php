@@ -67,7 +67,10 @@ if($config->csp == true) {
 try {
     $cityDbReader = new Reader($config->geoip_db);
     $geoip = $cityDbReader->city($ip);
+} catch(GeoIp2\Exception\AddressNotFoundException) {
+    $geoip = array("notfound" => "IP address not found in GeoIP database.");
 } catch(Exception $e) {
+    var_dump($e);
     $geoip = array();
 }
 
