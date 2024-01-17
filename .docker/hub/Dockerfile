@@ -10,7 +10,6 @@ RUN apk add --no-cache git nginx php83 php83-curl php83-fpm php83-mbstring php83
   && apk del --no-cache git \
   && rm -rfv .docker \
   && wget https://getcomposer.org/download/2.6.6/composer.phar \
-  && echo "72600201c73c7c4b218f1c0511b36d8537963e36aafa244757f52309f885b314 composer.phar" | sha256sum -c || rm composer.phar \
-  && php83 composer.phar update
+  && echo "72600201c73c7c4b218f1c0511b36d8537963e36aafa244757f52309f885b314 composer.phar" | sha256sum -c || rm composer.phar
 EXPOSE 80
-CMD [ "/bin/sh", "-c", "nginx && php-fpm83 -F" ]
+CMD [ "/bin/sh", "-c", "php83 composer.phar update && nginx && php-fpm83 -F" ]
