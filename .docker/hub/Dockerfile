@@ -1,6 +1,6 @@
 FROM alpine:3.19
 WORKDIR /var/www/html
-RUN apk add --no-cache git nginx php83 php83-curl php83-fpm php83-mbstring php83-openssl php83-phar \
+RUN apk add --no-cache git nginx php83 php83-curl php83-fpm php83-mbstring php83-openssl php83-phar wget \
   && adduser -D ipp \
   && git clone https://github.com/c0m4r/ip-info-page.git . \
   && rm -rfv .git .github .gitignore docker-compose.yml \
