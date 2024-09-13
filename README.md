@@ -43,8 +43,8 @@ IP Info page with geoip detection. Written in PHP, built with Twig, Bootstrap an
 ```bash
 git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
-wget https://getcomposer.org/download/2.6.6/composer.phar
-echo "72600201c73c7c4b218f1c0511b36d8537963e36aafa244757f52309f885b314 composer.phar" | sha256sum -c || rm composer.phar
+wget https://getcomposer.org/download/2.7.9/composer.phar
+echo "b6de5e65c199d80ba11897fbe1364e063e858d483f6a81a176c4d60f2b1d6347 composer.phar" | sha256sum -c || rm composer.phar
 php composer.phar update
 ```
 
@@ -69,8 +69,8 @@ You can also build it yourself:
 ```bash
 git clone https://github.com/c0m4r/ip-info-page.git
 cd ip-info-page
-wget https://getcomposer.org/download/2.6.6/composer.phar
-echo "72600201c73c7c4b218f1c0511b36d8537963e36aafa244757f52309f885b314 composer.phar" | sha256sum -c || rm composer.phar
+wget https://getcomposer.org/download/2.7.9/composer.phar
+echo "b6de5e65c199d80ba11897fbe1364e063e858d483f6a81a176c4d60f2b1d6347 composer.phar" | sha256sum -c || rm composer.phar
 php composer.phar update
 docker compose up -d
 ```
