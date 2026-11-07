@@ -5,8 +5,45 @@
     "homepage": "https://github.com/c0m4r/ip-info-page",
     "license": "MIT",
     "require": {
-        "geoip2/geoip2": "~2.0",
-        "twbs/bootstrap": "^5.3",
-        "twig/twig": "^3.8"
+        "php": "^8.5.12",
+        "geoip2/geoip2": "^3.4",
+        "twbs/bootstrap": "^5.3.8",
+        "twig/twig": "^3.30"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.3",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.1"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": false,
+        "optimize-autoloader": true,
+        "policy": {
+            "abandoned": {
+                "audit": "fail",
+                "block": true
+            },
+            "advisories": {
+                "audit": "fail",
+                "block": true
+            },
+            "cooldown": {
+                "period": "7 days"
+            },
+            "malware": {
+                "audit": "fail",
+                "block": true,
+                "block-scope": "all"
+            }
+        },
+        "preferred-install": "dist",
+        "secure-http": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyse": "phpstan analyse --no-progress",
+        "lint": "php -l index.php config.php"
     }
 }

@@ -2,6 +2,7 @@ server {
     listen [::]:443 quic reuseport;
     listen [::]:443 ssl;
     server_name _;
+    server_tokens off;
 
     http2 on;
     http3 on;
@@ -31,7 +32,7 @@ server {
     location ~ ^/index.php$ {
         allow all;
         include fastcgi.conf;
-        fastcgi_pass unix:/run/php-fpm83/php-fpm.sock;
+        fastcgi_pass unix:/run/php-fpm85/php-fpm.sock;
     }
 
     location ~ ^/(favicon.ico|icon.png|icon\-144.png|icon\-512.png)$ {

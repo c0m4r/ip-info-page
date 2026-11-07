@@ -1,0 +1,127 @@
+# Every action is pinned to a full commit SHA (the tag is in the trailing comment)
+# and Dependabot keeps those pins up to date. Jobs get the least privileges they need.
+
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    # Weekly run to catch newly published advisories against the locked dependencies
+    - cron: '26 3 * * 1'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  php:
+    name: PHP 8.5 (validate, audit, lint, PHPStan)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # composer.json requires PHP ^8.5.12, so the install step fails on anything older.
+      # Composer itself is checksum-verified; keep this in sync with the README.
+      - name: Setup PHP
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.5'
+          coverage: none
+          tools: composer:2.11.1@sha256:6f1b891e1d4927d62740276c540fb490e47689e19e102c49e8da849794882f8c
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Install dependencies from composer.lock
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Audit dependencies
+        run: composer audit
+
+      - name: PHP lint
+        run: composer lint
+
+      - name: PHPStan
+        run: composer analyse
+
+  docker:
+    name: Docker image (check, build, smoke test)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Dockerfile build checks
+        run: docker buildx build --check .
+
+      - name: Build image
+        run: docker build --tag ip-info-page:ci .
+
+      - name: Smoke test
+        run: |
+          docker run --detach --name ipp --read-only --tmpfs /tmp --cap-drop ALL \
+            --security-opt no-new-privileges --publish 127.0.0.1:8080:8080 ip-info-page:ci
+          # Wait for nginx and PHP-FPM to come up
+          for _ in $(seq 1 30); do curl -fs -o /dev/null http://127.0.0.1:8080/ && break; sleep 1; done
+          curl -fsS http://127.0.0.1:8080/ | jq -e '.ip'
+          curl -fsS -A 'Mozilla/5.0' http://127.0.0.1:8080/ | grep -q '<title>IP Info</title>'
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/composer.lock)" = 403
+          test "$(docker exec ipp id -u)" != 0
+          docker exec ipp php -r 'exit(version_compare(PHP_VERSION, "8.5.12", ">=") ? 0 : 1);'
+
+      - name: Container logs
+        if: failure()
+        run: docker logs ipp || true
+
+  zizmor:
+    name: GitHub Actions security (zizmor)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+        with:
+          version: 1.32.0
+          advanced-security: false
+          annotations: true
+
+  dependency-review:
+    name: Dependency review
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: low

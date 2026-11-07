@@ -1,2 +1,2 @@
-document.getElementById("system").innerHTML = navigator.platform;
-document.getElementById("lang").innerHTML = navigator.language;
+document.getElementById("system").textContent = navigator.platform;
+document.getElementById("lang").textContent = navigator.language;

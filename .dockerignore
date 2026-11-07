@@ -1,0 +1,15 @@
+# Allowlist: only what the image needs is sent to the build context.
+# This keeps .git, local vendor/, composer.phar and GeoLite2 databases out of the image.
+*
+!.docker/nginx/
+!.docker/php/
+!composer.json
+!composer.lock
+!config.php
+!css/
+!favicon.ico
+!icon*.png
+!index.php
+!js/
+!manifest.json
+!tpl/

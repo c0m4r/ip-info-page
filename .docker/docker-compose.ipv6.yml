@@ -1,26 +1,12 @@
-version: '3.9'
-
+# IPv6 override, use together with the main compose file:
+# docker compose -f docker-compose.yml -f .docker/docker-compose.ipv6.yml up -d --build
 services:
-  web:
-    image: nginx:latest
+  ipp:
     ports:
-      - '8080:80'
-    volumes:
-      - ./:/var/www/html
-      - ./.docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-    links:
-      - php-fpm
+      - '[::1]:8080:8080'
     networks:
       net6:
         ipv6_address: fd16:279c:f6ef::10
-    dns: fd16:279c:f6ef::1
-  php-fpm:
-    image: php:8-fpm
-    volumes:
-      - ./:/var/www/html
-    networks:
-      net6:
-        ipv6_address: fd16:279c:f6ef::20
     dns: fd16:279c:f6ef::1
 networks:
   net6:

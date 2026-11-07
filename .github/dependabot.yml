@@ -1,0 +1,36 @@
+# Keeps composer.lock, the digest-pinned Docker images and the SHA-pinned actions current.
+# The cooldown holds back brand-new releases for a week, so a compromised release has time
+# to be caught and yanked first. Security updates are not delayed by the cooldown.
+
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      composer:
+        patterns: [ "*" ]
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    ignore:
+      # Stay on PHP 8.5.x patch releases; move to a new minor version deliberately
+      - dependency-name: php
+        update-types: [ "version-update:semver-major", "version-update:semver-minor" ]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns: [ "*" ]
