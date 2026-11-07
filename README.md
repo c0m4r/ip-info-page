@@ -97,7 +97,15 @@ docker run --name ipp -d -p 127.0.0.1:8080:8080 --read-only --tmpfs /tmp \
 ```
 
 Prebuilt images are published on [Docker Hub](https://hub.docker.com/r/c0m4r/ip-info-page). If you use one,
-reference it by digest (`c0m4r/ip-info-page@sha256:...`), not by a tag that can be moved.
+reference it by digest, not by a tag that can be moved. To run 2.0.0 (linux/amd64):
+
+```bash
+docker run --name ipp -d -p 127.0.0.1:8080:8080 --read-only --tmpfs /tmp \
+  --cap-drop ALL --security-opt no-new-privileges \
+  c0m4r/ip-info-page:2.0.0@sha256:21dc37ce333c886b80a4968f22e2133ce731ee8e0136565a9ba11bd3298e98ef
+```
+
+When both are given, Docker pulls the image by its digest. The tag is only there to show which version it is.
 
 ## Supply-chain security
 
