@@ -85,7 +85,10 @@ jobs:
           # Wait for nginx and PHP-FPM to come up
           for _ in $(seq 1 30); do curl -fs -o /dev/null http://127.0.0.1:8080/ && break; sleep 1; done
           curl -fsS http://127.0.0.1:8080/ | jq -e '.ip'
-          curl -fsS -A 'Mozilla/5.0' http://127.0.0.1:8080/ | grep -q '<title>IP Info</title>'
+          # Fetch the page in full first: piping into `grep -q` races, since grep exits on the
+          # first match and curl then fails with "(23) Failure writing output" under pipefail
+          html="$(curl -fsS -A 'Mozilla/5.0' http://127.0.0.1:8080/)"
+          grep -q '<title>IP Info</title>' <<< "$html"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/composer.lock)" = 403
           test "$(docker exec ipp id -u)" != 0
           docker exec ipp php -r 'exit(version_compare(PHP_VERSION, "8.5.12", ">=") ? 0 : 1);'
