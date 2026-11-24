@@ -4,14 +4,14 @@
 FROM composer:2.11.1@sha256:8de2184c6de224f4689e8f80ed5f5edaf0030b6b8b7839a22a2bcb6722ac87d0 AS composer
 
 # Build stage: install exactly what composer.lock pins (plugins are disabled in composer.json)
-FROM php:8.5.12-fpm-alpine3.24@sha256:951fb5b1780219b81d5daffa4cebef8e0077c537f3893d9790a5dfcd66ca334d AS vendor
+FROM php:8.5.13RC1-fpm-alpine3.24@sha256:b460311ba97c2a49ef228d88d4a41b100811b7cf6d723d62ce588d4044493b0f AS vendor
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 WORKDIR /build
 COPY composer.json composer.lock ./
 RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --no-interaction --no-progress --prefer-dist --optimize-autoloader
 
 # Runtime stage: nginx + PHP-FPM, both running as the unprivileged www-data user
-FROM php:8.5.12-fpm-alpine3.24@sha256:951fb5b1780219b81d5daffa4cebef8e0077c537f3893d9790a5dfcd66ca334d
+FROM php:8.5.13RC1-fpm-alpine3.24@sha256:b460311ba97c2a49ef228d88d4a41b100811b7cf6d723d62ce588d4044493b0f
 RUN apk add --no-cache nginx~1.30 \
   && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 COPY .docker/php/zz-ipp.ini "$PHP_INI_DIR/conf.d/"
