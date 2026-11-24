@@ -61,7 +61,7 @@ the file is deleted and the install step fails instead of running an unverified 
 
 #### Docker
 
-The image is built from the official `php:8.5.12-fpm-alpine3.24` image pinned by digest. Dependencies are installed
+The image is built from the official `php:8.5.13-fpm-alpine3.24` image pinned by digest. Dependencies are installed
 from `composer.lock` at build time, never at container start, and nginx and PHP-FPM both run as the unprivileged
 `www-data` user on port 8080.
 
